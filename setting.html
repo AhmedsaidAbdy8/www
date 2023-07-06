@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script type="text/javascript">
+        window.addEventListener('beforeunload', function (e) {
+            e.preventDefault();
+            e.returnValue = '';
+            
+        });
+    </script>
+    
+   
+    <script>
+
+        function edit_data1()
+        {
+            var form_element = document.getElementsByClassName('form_data');
+        
+            var form_data = new FormData();
+        
+            for(var count = 0; count < form_element.length; count++)
+            {
+                form_data.append(form_element[count].name, form_element[count].value);
+            }
+        
+            document.getElementById('modify1').disabled = true;
+        
+            var ajax_request = new XMLHttpRequest();
+        
+            ajax_request.open('POST', 'modify1.php');
+        
+            ajax_request.send(form_data);
+        
+            ajax_request.onreadystatechange = function()
+            {
+                if(ajax_request.readyState == 4 && ajax_request.status == 200)
+                {
+                    document.getElementById('modify1').disabled = false;
+        
+        
+                   
+                {
+                        document.getElementById('sample_form').reset();
+        
+                        document.getElementById('message').innerHTML = ajax_request.responseText;
+        
+                        setTimeout(function(){
+        
+                            document.getElementById('message').innerHTML = '';
+        
+                        },20000);
+                    }
+                }
+            }
+        }
+    
+            
+
+        </script>
+    <script>
+
+        function edit_data()
+        {
+            var form_element = document.getElementsByClassName('form_data');
+        
+            var form_data = new FormData();
+        
+            for(var count = 0; count < form_element.length; count++)
+            {
+                form_data.append(form_element[count].name, form_element[count].value);
+            }
+        
+            document.getElementById('modify').disabled = true;
+        
+            var ajax_request = new XMLHttpRequest();
+        
+            ajax_request.open('POST', 'modify.php');
+        
+            ajax_request.send(form_data);
+        
+            ajax_request.onreadystatechange = function()
+            {
+                if(ajax_request.readyState == 4 && ajax_request.status == 200)
+                {
+                    document.getElementById('modify').disabled = false;
+        
+                    
+        
+                   
+                {
+                        document.getElementById('sample_form').reset();
+        
+                        document.getElementById('message').innerHTML = ajax_request.responseText;
+        
+                        setTimeout(function(){
+        
+                            document.getElementById('message').innerHTML = '';
+        
+                        },20000);
+                    }
+                }
+            }
+        }
+    
+            
+        
+        </script>
+    
+<head>
+
+    
+
+
+
+    <!--
+     - Roxy: Bootstrap template by GettTemplates.com
+     - https://gettemplates.co/roxy
+    -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Gamenight Sahloul</title>
+    <meta name="description" content="Roxy">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/select2/select2.min.css">
+    <link rel="stylesheet" href="vendor/owlcarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="vendor/lightcase/lightcase.css">
+     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400|Work+Sans:300,400,700" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <!-- Modernizr JS for IE8 support of HTML5 elements and media queries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+
+</head>
+<body data-spy="scroll" data-target="#navbar-nav-header" class="static-layout">
+	<div class="boxed-page">
+		<nav id="header-navbar" class="navbar navbar-expand-lg py-4">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center text-white" href="/">
+            <h3 class="font-weight-bolder mb-0"></h3>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-nav-header" aria-controls="navbar-nav-header" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="lnr lnr-menu"></span>
+        </button>
+        <span class="alert alert-success" id ="message"role="alert"></span>
+        <div class="collapse navbar-collapse" id="navbar-nav-header">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost/home.html"target="_blank">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost/history.php"target="_blank">History</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost/posts.html"target="_blank">Posts</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost/setting.html"target="_blank">Settings</a>
+                </li>
+                <li class="nav-item">
+                   
+                </li>
+                 <li class="nav-item only-desktop">
+                    <a class="nav-link" id="side-nav-open" href="#">
+                        <span class="lnr lnr-menu"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="side-nav" class="sidenav">
+	<a href="javascript:void(0)" id="side-nav-close">&times;</a>
+	
+	<div class="sidenav-content">
+		<p>
+			ALL RIGHTS RESERVED FOR  © 2022
+		</p>
+		<p>
+			<span class="fs-16 primary-color">WWA</span>
+		</p>
+		<p>	MAU X TN</p>
+	</div>
+</div><div id="side-search" class="sidenav">
+	<a href="javascript:void(0)" id="side-search-close">&times;</a>
+	<div class="sidenav-content">
+		
+        
+
+			<div class="input-group md-form form-sm form-2 pl-0">
+			  <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search">
+			  <div class="input-group-append">
+			    <button class="input-group-text red lighten-3" id="basic-text1">
+			    	<span class="lnr lnr-magnifier"></span>
+			    </button>
+			  </div>
+			</div>
+
+		
+	</div>
+	
+</div>	
+<form  id ="sample_form"> 
+<span id="message"></span>
+         
+	<div class="jumbotron jumbotron-single d-flex align-items-center" style="background-image: url(img/billard.jpg)">
+  <div class="container text-center">
+    <div class="col-md-7 col-sm-14 text-center mt-2">
+        <div class="shadow rounded feature-item align-items-right p-4 mb-4 aos-init aos-animate" data-aos="fade-up">
+            <div class="my-7">
+                <i class="lnr lnr-cog fs-40"></i>
+                
+            </div>
+            <h4>PS4 </h4>
+          
+           insert your tarifs: <input type="text" id="TarifA" name="TarifA" required
+            minlength="2" maxlength="8" size="10" class="form_control form_data"> 2 manettes <br> 
+            insert your tarifs: <input type="text" id="TarifB" name="TarifB" required
+            minlength="2" maxlength="8" size="10" class="form_control form_data"> 3 manettes <br>
+            insert your tarifs: <input type="text" id="tarifC" name="tarifC" required
+            minlength="2" maxlength="8" size="10" class="form_control form_data"> 4 manettes <br>
+           
+            
+            <button type="button" value="modify" id="modify"onclick="edit_data()" class="btn btn-success mt-2 p-2 mb-2" >modify</button>
+      
+        </div>
+   
+        
+        
+  
+        
+       
+    </div>
+    </div>
+
+    
+    <div class="container text-center">
+        <div class="col-md-7 col-sm-14 text-center mt-2">
+            <div class="shadow rounded feature-item align-items-center p-4 mb-4 aos-init aos-animate" data-aos="fade-up">
+                <div class="my-7">
+                    <i class="lnr lnr-cog fs-40"></i>
+                    
+                </div>
+                <h4>PS5 </h4>
+           insert your tarifs: <input type="text" id="TarifA1" name="TarifA1" required
+            minlength="2" maxlength="8" size="10" class="form_control form_data"> 2 manettes <br> 
+            insert your tarifs: <input type="text" id="TarifB1" name="TarifB1" required
+            minlength="2" maxlength="8" size="10" class="form_control form_data"> 3 manettes <br>
+            insert your tarifs: <input type="text" id="tarifC1" name="TarifC1" required
+            minlength="2" maxlength="8" size="10" class="form_control form_data"> 4 manettes <br>
+           
+            
+            
+            <button type="button" value="modify1" id="modify1"onclick="edit_data1()"  class="btn btn-success mt-2 p-2 mb-2">modify</button>
+
+                
+               
+            </div>
+            
+           
+        </div>
+
+  
+           
+
+    </form>
+  
+  
+
+
+	<!-- External JS -->
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+	<script src="vendor/bootstrap/popper.min.js"></script>
+	<script src="vendor/bootstrap/bootstrap.min.js"></script>
+	<script src="vendor/select2/select2.min.js "></script>
+	<script src="vendor/owlcarousel/owl.carousel.min.js"></script>
+	<script src="vendor/stellar/jquery.stellar.js" type="text/javascript" charset="utf-8"></script>
+	<script src="vendor/isotope/isotope.min.js"></script>
+	<script src="vendor/lightcase/lightcase.js"></script>
+	<script src="vendor/waypoints/waypoint.min.js"></script>
+	 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+	 
+	<!-- Main JS -->
+</body>
+</html>
